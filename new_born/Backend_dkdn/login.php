@@ -30,9 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if ($role === 'admin') {
                         // header("Location: ../Frontend_web/admin2.php");
                         header("Location: ../Frontend_web/giaodienql.php");
+                        
                     } elseif ($role === 'nhanvien') {
+
                         header("Location: ../Frontend_web/giaodienql.php"); // Trang cho nhân viên
                     } else {
+                        // giao khách hàng
                         header("Location: ../Frontend_web/trangchu.php");
                     }
                     exit();

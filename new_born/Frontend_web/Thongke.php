@@ -1,4 +1,6 @@
 <?php
+
+// dã dỏi
 // Kết nối với cơ sở dữ liệu MySQL
 require_once('C:/xampp/htdocs/web_new_born/new_born/db.php');
 
