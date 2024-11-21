@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2em;
+    color: #d3bca7;
+    text-align: center;
+}
+
+header nav {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #888;
+}
+
+header nav a {
+    color: #d3bca7;
+    text-decoration: none;
+}
+
+.checkout {
+    display: flex;
+    gap: 20px;
+}
+
+.shipping-form,
+.order-summary {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.shipping-form {
+    flex: 3;
+}
+
+.shipping-form h2 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.shipping-form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.shipping-form input[type="text"],
+.shipping-form input[type="email"],
+.shipping-form input[type="tel"],
+.shipping-form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.shipping-form fieldset {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 4px;
+}
+
+.shipping-form legend {
+    font-size: 1em;
+    color: #555;
+}
+
+.shipping-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #d3bca7;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.order-summary {
+    flex: 1;
+}
+
+.order-summary h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.cart-items li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.total h4,
+.total h3 {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #333;
+}
+
+.total p {
+    font-size: 16px;
+    color: #d3bca7;
+    text-align: right;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #d3bca7;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+}
