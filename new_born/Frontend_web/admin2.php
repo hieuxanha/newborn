@@ -207,14 +207,14 @@ $result = $conn->query($sql);
     <div id="menu" class="sidebar">
         <h2 class="text-center" style="color: #a39074; font-size: 20px;">Shop Bán Đồ Em Bé</h2>
              <hr>
-      <div style="margin-top: 50px;">
+      <!-- <div style="margin-top: 50px;">
         <a href="#">Quản lý sản phẩm</a>
         <a href="http://localhost/web_new_born/new_born/Frontend_web/ql_donhang.php">Đơn hàng</a>
         <a href="#">Khách hàng</a>
         <a href="http://localhost/web_new_born/new_born/Frontend_web/thongtinnguoidung.php">Quản lý nhan vien</a>
         <a href="http://localhost/web_new_born/new_born/Frontend_web/Thongke.php">Báo cáo doanh thu</a>
         <a href="./ql_khchhang.php">ql khach hang</a>
-        <a href="#">Đăng xuất</a>
+        <a href="#">Đăng xuất</a> -->
       </div>
     </div>
 
