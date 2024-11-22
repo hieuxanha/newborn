@@ -308,13 +308,56 @@ if (!isset($_SESSION['user_id'])) {
             </div>
 
             <div class="search-bar">
-    <!-- <form action="/web_new_born/new_born/timkiem.php" method="GET"> -->
-        <input type="text" id="searchInput"  name="keyword" placeholder="Bạn cần tìm gì ..." required />
-        <!-- <button type="button" class="search-button">Tìm kiếm</button> -->
+    <input type="text" id="searchInput" name="keyword" placeholder="Bạn cần tìm gì ..." required />
+    <button type="button" id="searchButton" class="search-button">Tìm kiếm</button>
+        </div>
+<div id="searchResults"></div>
 
-        <button type="button" id="searchButton" class="search-button">Tìm kiếm</button>
-    <!-- </form> -->
-</div>
+<script>
+    document.getElementById("searchButton").addEventListener("click", function () {
+    const keyword = document.getElementById("searchInput").value.trim();
+    if (keyword === "") {
+        alert("Vui lòng nhập từ khóa tìm kiếm!");
+        return;
+    }
+
+    // Gửi yêu cầu tìm kiếm tới backend
+    fetch(`/web_new_born/new_born/timkiem.php?keyword=${encodeURIComponent(keyword)}`)
+        .then(response => response.json())
+        .then(data => {
+            const resultsContainer = document.getElementById("searchResults");
+            resultsContainer.innerHTML = ""; // Xóa kết quả cũ
+
+            if (data.length === 0) {
+                resultsContainer.innerHTML = "<p>Không tìm thấy sản phẩm phù hợp.</p>";
+                return;
+            }
+
+            // Hiển thị danh sách sản phẩm tìm được
+            const resultList = document.createElement("ul");
+            resultList.style.listStyle = "none";
+            data.forEach(item => {
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `
+                    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <img src="${item.anh_san_pham}" alt="${item.ten_san_pham}" style="width: 50px; height: 50px; margin-right: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                        <div>
+                            <a href="/web_new_born/new_born/product.php?id=${item.id}"><strong>${item.ten_san_pham}</strong></a>
+                            <p>${item.gia.toLocaleString()} VNĐ</p>
+                        </div>
+                    </div>
+                `;
+                resultList.appendChild(listItem);
+            });
+            resultsContainer.appendChild(resultList);
+        })
+        .catch(error => {
+            console.error("Lỗi tìm kiếm:", error);
+            alert("Có lỗi xảy ra khi tìm kiếm. Vui lòng thử lại!");
+        });
+});
+
+</script>
             <div class="account">
                 <?php
                     
