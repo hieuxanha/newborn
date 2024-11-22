@@ -222,9 +222,9 @@ $result = $conn->query($sql);
 
 <div id="menu" class="sidebar">
     <h2 class="text-center" style="color: #a39074; font-size: 20px;">Shop Bán Đồ Em Bé</h2>
-    <a href="http://localhost/web_new_born/new_born/admin2.php">Quản lý sản phẩm</a>
+    <!-- <a href="http://localhost/web_new_born/new_born/admin2.php">Quản lý sản phẩm</a>
     <a href="#">Nhân viên & Khách hàng</a>
-    <a href="#">Cài đặt</a>
+    <a href="#">Cài đặt</a> -->
 </div>
 
 <div class="header">
