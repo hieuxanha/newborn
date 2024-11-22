@@ -43,7 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "Chỉ cho phép tệp hình ảnh với định dạng JPG, JPEG, PNG, GIF, WEBP.";
             $uploadOk = 0;
         }
-
         // Nếu không có lỗi, di chuyển tệp lên thư mục uploads
         if ($uploadOk) {
             if (move_uploaded_file($_FILES["anh_san_pham"]["tmp_name"], $target_file)) {
