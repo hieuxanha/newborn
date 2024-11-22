@@ -264,6 +264,7 @@ if (!isset($_SESSION['user_id'])) {
     z-index: 1;
     margin-top: 8px;
     padding: 8px;
+    top: 20px;
     
 }
 
