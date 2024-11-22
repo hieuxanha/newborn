@@ -310,7 +310,7 @@ if (!isset($_SESSION['user_id'])) {
             <div class="search-bar">
     <input type="text" id="searchInput" name="keyword" placeholder="Bạn cần tìm gì ..." required />
     <button type="button" id="searchButton" class="search-button">Tìm kiếm</button>
-        </div>
+</div>
 <div id="searchResults"></div>
 
 <script>
@@ -360,26 +360,12 @@ if (!isset($_SESSION['user_id'])) {
 </script>
             <div class="account">
                 <?php
-                    
-                    // if (isset($_SESSION['name'])) {
-                        
-                
-                    //     echo '<span>Xin chào, ' . htmlspecialchars($_SESSION['name']) . '</span>';
-                    //     echo '<a href="./formdangnhapky.php">Đăng xuất</a>'; 
-                      
-                    // } else {
-                        
-                    //     echo '<a href="./formdangnhapky.php">Tài khoản</a>';
-                    // }
-
-                    
-// Khởi động phiên nếu chưa được khởi động
              if (session_status() == PHP_SESSION_NONE) {
               session_start();
               }
 
               if (isset($_SESSION['name'])) {
-    // Người dùng đã đăng nhập, hiển thị tên người dùng và menu thả xuống
+ 
               echo '<div class="dropdown">';
               echo '<span class="user-name">Xin chào, ' . htmlspecialchars($_SESSION['name']) . '</span>';
               echo '<div class="dropdown-content">';
@@ -387,7 +373,7 @@ if (!isset($_SESSION['user_id'])) {
               echo '</div>';
               echo '</div>';
             } else {
-    // Người dùng chưa đăng nhập, hiển thị liên kết đăng nhập
+    
              echo '<a href="./formdangnhapky.php">Tài khoản</a>';
            }
 
@@ -398,7 +384,6 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </div>
 
-        <!-- Navigation -->
         <div class="menu">
             <a href="#">GIỚI THIỆU NOUS</a>
             <a href="#">BÉ MẶC</a>
@@ -419,14 +404,14 @@ if (!isset($_SESSION['user_id'])) {
         </div>
         <div class="cart-content">
             <?php
-            // Kiểm tra xem người dùng đã đăng nhập chưa
+         
             if (isset($_SESSION['user_id'])) {
                 $user_id = $_SESSION['user_id']; // Lấy user_id từ session
 
                 // Kết nối cơ sở dữ liệu
                 require_once('C:/xampp/htdocs/web_new_born/new_born/db.php');
 
-                // Truy vấn lấy thông tin giỏ hàng của người dùng từ bảng gio_hang và thông tin sản phẩm từ bảng sanpham
+              
                 $stmt = $conn->prepare("
                     SELECT g.id, g.san_pham_id, g.so_luong, s.ten_san_pham, s.gia, s.anh_san_pham
                     FROM gio_hang g
@@ -457,10 +442,7 @@ if (!isset($_SESSION['user_id'])) {
                
 
                         <form method="post" action="../Backend_giohang/update_cart.php" style="display: inline;">
-                            <!-- Thêm input cho id giỏ hàng -->
-                            <input type="hidden" name="id" value="<?= $row['id']; ?>"> <!-- id của giỏ hàng -->
-
-                            <!-- Các nút tăng/giảm số lượng -->
+                            <input type="hidden" name="id" value="<?= $row['id']; ?>"> 
                             <button type="submit" name="action" value="decrease" class="quantity-btn">-</button>
                             <input type="text" value="<?= $row['so_luong']; ?>" readonly
                                 style="width: 30px; text-align: center;">
@@ -491,7 +473,7 @@ if (!isset($_SESSION['user_id'])) {
         </div>
 
         <div class="thanhtoan">
-            <!-- <form method="post" action="dat_hang.php"> -->
+     
             <form method="post" action="chitietgiohang.php">
                 <button type="submit" class="checkout-btn">Đặt hàng</button>
             </form>
