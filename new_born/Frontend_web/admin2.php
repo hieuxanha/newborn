@@ -1,20 +1,5 @@
 <?php
-// Kết nối với cơ sở dữ liệu MySQL
-// $servername = "localhost"; // Máy chủ MySQL của bạn
-// $username = "root";        // Tên người dùng MySQL
-// $password = "";            // Mật khẩu MySQL
-// $dbname = "newborn_shop";  // Tên cơ sở dữ liệu
 
-// // Tạo kết nối
-// $conn = new mysqli('127.0.0.1', $username, $password, $dbname);
-
-// // Kiểm tra kết nối
-// if ($conn->connect_error) {
-//     die("Kết nối thất bại: " . $conn->connect_error);
-// }
-// deo dccc
-//    require_once($_SERVER['DOCUMENT_ROOT'] . '/admin2/db.php');
-// require_once($_SERVER['DOCUMENT_ROOT'] . '/admin2/db.php');
 
 require_once('C:/xampp/htdocs/web_new_born/new_born/db.php');
 
@@ -38,7 +23,7 @@ $result = $conn->query($sql);
         font-family: 'Helvetica', sans-serif;
         background-color: #f9f9f9;
 
-        /* background-color:  #E3F2ED; */
+       
         color: #6d6d6d;
     }
 
@@ -72,7 +57,7 @@ $result = $conn->query($sql);
         padding: 20px;
     }
 
-    /* Header */
+  
     .header {
         display: flex;
         justify-content: space-between;
@@ -95,7 +80,7 @@ $result = $conn->query($sql);
         outline: none;
     }
 
-    /* User avatar and dropdown */
+   
     .avatar {
         position: relative;
         display: inline-block;
@@ -134,7 +119,7 @@ $result = $conn->query($sql);
         display: block;
     }
 
-    /* Table */
+ 
     .table-container {
         margin-top: 80px;
     }
@@ -207,18 +192,11 @@ $result = $conn->query($sql);
     <div id="menu" class="sidebar">
         <h2 class="text-center" style="color: #a39074; font-size: 20px;">Shop Bán Đồ Em Bé</h2>
              <hr>
-      <!-- <div style="margin-top: 50px;">
-        <a href="#">Quản lý sản phẩm</a>
-        <a href="http://localhost/web_new_born/new_born/Frontend_web/ql_donhang.php">Đơn hàng</a>
-        <a href="#">Khách hàng</a>
-        <a href="http://localhost/web_new_born/new_born/Frontend_web/thongtinnguoidung.php">Quản lý nhan vien</a>
-        <a href="http://localhost/web_new_born/new_born/Frontend_web/Thongke.php">Báo cáo doanh thu</a>
-        <a href="./ql_khchhang.php">ql khach hang</a>
-        <a href="#">Đăng xuất</a> -->
+    
       </div>
     </div>
 
-    <!-- Header with search and user avatar -->
+
     <div class="header">
         <div class="search-bar">
             <input type="text" placeholder="Tìm kiếm sản phẩm..." id="searchInput">
@@ -267,11 +245,11 @@ $result = $conn->query($sql);
                         echo "<td>" . $row['loai_san_pham'] . "</td>";
                         echo "<td>" . $row['mo_ta'] . "</td>";
                         echo "<td>" . $row['so_luong'] . "</td>";
-                        // Kiểm tra xem trường 'anh_san_pham' có tồn tại không
+        
                         if (isset($row['anh_san_pham']) && !empty($row['anh_san_pham'])) {
                             echo "<td><img src='/web_new_born/new_born/Frontend_web/" . htmlspecialchars($row['anh_san_pham']) . "' width='50'></td>";
                         } else {
-                            echo "<td>Không có ảnh</td>"; // Or display a default image if preferred
+                            echo "<td>Không có ảnh</td>";
                         }
                         
                         echo "<td>" . ($row['san_pham_noi_bat'] ? "Có" : "Không") . "</td>";
@@ -285,7 +263,7 @@ $result = $conn->query($sql);
 
                 ?>
                 </tbody>
-                <!-- Dynamic rows will be inserted here -->
+              
                 </tbody>
             </table>
             <a href="./addsanpham.php" class="btn btn-primary"
