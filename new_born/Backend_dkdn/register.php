@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $address = $_POST['address'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $role = $_POST['role'];
+    $role = $_POST['role'] ?? 'user'; 
 
     // Kiểm tra xem email đã tồn tại trong cơ sở dữ liệu chưa
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");

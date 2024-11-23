@@ -480,12 +480,10 @@ if (!isset($_SESSION['user_id'])) {
         </div>
     </div>
 
-
-    <!-- Overlay -->
     <div id="cartOverlay" class="cart-overlay" onclick="toggleCart()"></div>
 
 
-    <!-- Slide Show -->
+    <!-- Slide chạy   -->
     <div class="slider-container">
         <div class="slider">
             <div class="slides">
@@ -496,7 +494,7 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </div>
 
-        <!-- Navigation buttons -->
+        <!-- git  buttons -->
         <button class="prev" onclick="prevSlide()">&#10094;</button>
         <button class="next" onclick="nextSlide()">&#10095;</button>
 
