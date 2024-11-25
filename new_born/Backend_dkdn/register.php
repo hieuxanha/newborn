@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $address = $_POST['address'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $role = $_POST['role'] ?? 'user'; 
+    $role = $_POST['role'] ?? 'khachhang'; 
 
     // Kiểm tra xem email đã tồn tại trong cơ sở dữ liệu chưa
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
@@ -17,14 +17,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        echo "Email đã tồn tại!";
+      
+        echo "<script>
+        alert('Email đã tồn tại!');
+        window.location.href ='http://localhost/web_new_born/new_born/Frontend_web/formdangnhapky.php'; 
+      </script>";
     } else {
         // Câu lệnh SQL để thêm người dùng
         $stmt = $conn->prepare("INSERT INTO users (name, phone, email, address, password, role) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssssss", $name, $phone, $email, $address, $password, $role);
 
         if ($stmt->execute()) {
-            echo "Đăng ký thành công!";
+          
+            echo "<script>
+            alert('Đăng ký thành công!');
+            window.location.href ='http://localhost/web_new_born/new_born/Frontend_web/formdangnhapky.php'; 
+          </script>";
+
         } else {
             echo "Đã xảy ra lỗi: " . $stmt->error;
         }

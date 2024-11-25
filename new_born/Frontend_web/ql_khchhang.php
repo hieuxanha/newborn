@@ -2,7 +2,7 @@
 require_once('C:/xampp/htdocs/web_new_born/new_born/db.php');
 
 // Fetch all "khách hàng" users
-$sql = "SELECT * FROM users WHERE role = 'user'";
+$sql = "SELECT * FROM users WHERE role = 'khachhang'";
 $result = $conn->query($sql);
 ?>
 
@@ -247,7 +247,7 @@ $result = $conn->query($sql);
         <input type="email" class="input-field" name="email" placeholder="Email Khách Hàng" required>
         <input type="text" class="input-field" name="address" placeholder="Địa Chỉ Khách Hàng" required>
         <input type="password" class="input-field" name="password" placeholder="Mật Khẩu Khách Hàng" required>
-        <input type="hidden" name="role" value="user">
+        <input type="hidden" name="role" value="khachhang">
         <button type="submit" class="btn btn-primary">Thêm khách hàng</button>
     </form>
 

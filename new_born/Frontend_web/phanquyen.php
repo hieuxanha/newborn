@@ -2,7 +2,7 @@
 require_once('C:/xampp/htdocs/web_new_born/new_born/db.php');
 
 // Fetch all users with role 'nhanvien' and 'user'
-$sql = "SELECT * FROM users WHERE role IN ('nhanvien', 'user')";
+$sql = "SELECT * FROM users WHERE role IN ('nhanvien', 'khachhang')";
 $result = $conn->query($sql);
 ?>
 
