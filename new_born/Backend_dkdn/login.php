@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if ($role === 'admin') {
                         // header("Location: ../Frontend_web/admin2.php");
                         header("Location: ../Frontend_web/giaodienql.php");
-                        
+
                     } elseif ($role === 'nhanvien') {
 
                         header("Location: ../Frontend_web/giaodienql.php"); // Trang cho nhân viên
@@ -40,10 +40,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                     exit();
                 } else {
-                    echo "Mật khẩu không đúng.";
+                    // echo "Mật khẩu không đúng.";
+                    echo "<script>
+                    alert('Mật khẩu không đúng.');
+                    window.location.href ='http://localhost/web_new_born/new_born/Frontend_web/formdangnhapky.php'; 
+                  </script>";
                 }
             } else {
-                echo "Email không tồn tại.";
+               
+                echo "<script>
+                alert('Email không tồn tại.');
+                window.location.href ='http://localhost/web_new_born/new_born/Frontend_web/formdangnhapky.php'; 
+              </script>";
             }
             $stmt->close();
         } else {
