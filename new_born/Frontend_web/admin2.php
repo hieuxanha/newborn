@@ -273,7 +273,6 @@ $result = $conn->query($sql);
     <div id="menu" class="sidebar">
         <h2 class="text-center" style="color: #a39074; font-size: 20px;">Shop Bán Đồ Em Bé</h2>
              <hr>
-    
       </div>
     </div>
 
@@ -283,6 +282,7 @@ $result = $conn->query($sql);
             <input type="text" placeholder="Tìm kiếm sản phẩm..." id="searchInput">
         </div>
         <div id="searchResults"></div>
+
 <script>
     document.getElementById("searchInput").addEventListener("input", function () {
     const keyword = this.value.trim();
@@ -362,7 +362,6 @@ document.addEventListener("click", function (event) {
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Mã sản phẩm</th>
                         <th>Tên sản phẩm</th>
                         <th>Giá (VNĐ)</th>
                         <th>Danh mục</th>
