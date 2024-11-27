@@ -12,14 +12,14 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 if (isset($_SESSION['user_id'])) {
-    // Lấy dữ liệu từ session và form thanh toán
-    $user_id = $_SESSION['user_id']; // id của người dùng từ session
+
+    $user_id = $_SESSION['user_id']; 
     $hoTen = $_POST['hoTen'];
     $email = $_POST['email'];
     $soDienThoai = $_POST['soDienThoai'];
     $diaChi = $_POST['diaChi'];
 
-    // 1. Tính tổng tiền hóa đơn từ giỏ hàng
+    
     $tongTien = 0;
 
     $query = "SELECT g.so_luong, s.gia
@@ -34,7 +34,7 @@ if (isset($_SESSION['user_id'])) {
         }
     }
 
-    // 2. Tạo hóa đơn
+
     $query = "INSERT INTO thanhtoan (user_id, hoTen, email, soDienThoai, diaChi, ngayThanhToan, tongTien)
               VALUES ('$user_id', '$hoTen', '$email', '$soDienThoai', '$diaChi', NOW(), '$tongTien')";
     if ($conn->query($query) === TRUE) {
@@ -65,7 +65,7 @@ if (isset($_SESSION['user_id'])) {
 
             $_SESSION['hoa_don_id'] = $idHoaDon;
 
-            // Gửi email xác nhận
+            // Gửi e
             $mail = new PHPMailer(true);
 
             
@@ -74,8 +74,8 @@ if (isset($_SESSION['user_id'])) {
                 $mail->isSMTP();
                 $mail->Host       = 'smtp.gmail.com';
                 $mail->SMTPAuth   = true;
-                $mail->Username   = 'nguyenconghieu7924@gmail.com'; // Thay bằng email của bạn
-                $mail->Password   = 'fdgmilbrhtgkxbev';             // App password
+                $mail->Username   = 'nguyenconghieu7924@gmail.com'; 
+                $mail->Password   = 'fdgmilbrhtgkxbev';            
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
                 $mail->Port       = 465;
             

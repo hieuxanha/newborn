@@ -317,9 +317,6 @@ if (!isset($_SESSION['user_id'])) {
     opacity: 1;
 }
 
-
-
-
 </style>
   
     <!-- Link CSS Swiper -->
@@ -327,8 +324,6 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 
 <body>
-
-
     <!-- Header -->
     <div class="container container_header">
         <div class="header">
