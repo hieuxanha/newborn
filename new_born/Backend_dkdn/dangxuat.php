@@ -1,10 +1,10 @@
 <?php
-session_start(); // Khởi động session
-session_unset(); // Xóa tất cả các biến session
-session_destroy(); // Hủy session
-// header("Location: ../Frontend_web/trangchu.php"); 
+session_start();
+session_unset();
+session_destroy();
+
 
 header("Location: ../Frontend_web/giaodienchung.php"); 
-// Chuyển hướng người dùng về
+
 exit();
 ?>
