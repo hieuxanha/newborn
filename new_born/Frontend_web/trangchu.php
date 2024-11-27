@@ -294,14 +294,15 @@ if (!isset($_SESSION['user_id'])) {
   align-items: center;
     
     position: absolute;
-    top: 70px; /* Khoảng cách từ thanh tìm kiếm */
+    top: 40px; /* Khoảng cách từ thanh tìm kiếm */
     /* left: 0; */
-    width: 50%;
+  
+    width: 100%;
     max-height: 300px;
     overflow-y: auto;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    border-radius: 10px;
     transform: translateY(-20px);
     opacity: 0;
     transition: transform 0.3s ease, opacity 0.3s ease;
@@ -334,8 +335,10 @@ if (!isset($_SESSION['user_id'])) {
             <div class="search-bar">
                <input type="text" id="searchInput" name="keyword" placeholder="Bạn cần tìm gì ..." required />
                 <button type="button" id="searchButton" class="search-button">Tìm kiếm</button>
+
+                <div id="searchResults"></div>
             </div>
-            <div id="searchResults"></div>
+        
 
 <script>
    document.getElementById("searchButton").addEventListener("click", function () {
@@ -369,7 +372,7 @@ if (!isset($_SESSION['user_id'])) {
                     <div style="display: flex; align-items: center; margin-bottom: 10px;">
                         <img src="${item.anh_san_pham}" alt="${item.ten_san_pham}" style="width: 50px; height: 50px; margin-right: 10px; border: 1px solid #ccc; border-radius: 5px;">
                         <div>
-                            <a href="/web_new_born/new_born/product.php?id=${item.id}"><strong>${item.ten_san_pham}</strong></a>
+                            <a href="/web_new_born/new_born/Frontend_web/ChiTietSanPham.php?id=${item.id}"><strong>${item.ten_san_pham}</strong></a>
                             <p>${item.gia.toLocaleString()} VNĐ</p>
                         </div>
                     </div>
