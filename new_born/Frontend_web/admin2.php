@@ -183,6 +183,87 @@ $result = $conn->query($sql);
     .btn-danger:hover {
         background-color: #c82333;
     }
+
+
+    /* tim kime */
+    /* Thanh tìm kiếm */
+
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Kết quả tìm kiếm */
+#searchResults {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1000;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Hiệu ứng trượt ra */
+#searchResults.active {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+/* Danh sách sản phẩm */
+#searchResults ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+#searchResults li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#searchResults img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#searchResults a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#searchResults p {
+    margin: 0;
+    color: #777;
+}
+
+/* Hiệu ứng trượt */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
     </style>
 </head>
 
@@ -201,6 +282,67 @@ $result = $conn->query($sql);
         <div class="search-bar">
             <input type="text" placeholder="Tìm kiếm sản phẩm..." id="searchInput">
         </div>
+        <div id="searchResults"></div>
+<script>
+    document.getElementById("searchInput").addEventListener("input", function () {
+    const keyword = this.value.trim();
+    const resultsContainer = document.getElementById("searchResults");
+
+    if (keyword === "") {
+        resultsContainer.classList.remove("active"); // Ẩn nếu không có từ khóa
+        resultsContainer.innerHTML = "";
+        return;
+    }
+
+    // Gửi yêu cầu tìm kiếm tới backend
+    fetch(`/web_new_born/new_born/timkiem.php?keyword=${encodeURIComponent(keyword)}`)
+        .then(response => response.json())
+        .then(data => {
+            resultsContainer.innerHTML = ""; // Xóa kết quả cũ
+
+            if (data.length === 0) {
+                resultsContainer.innerHTML = "<p style='padding: 10px;'>Không tìm thấy sản phẩm phù hợp.</p>";
+                resultsContainer.classList.add("active");
+                return;
+            }
+
+            // Hiển thị danh sách sản phẩm tìm được
+            const resultList = document.createElement("ul");
+            data.forEach(item => {
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `
+                    <img src="${item.anh_san_pham}" alt="${item.ten_san_pham}">
+                    <div>
+                        <a href="/web_new_born/new_born/product.php?id=${item.id}">${item.ten_san_pham}</a>
+                        <p>${item.gia.toLocaleString()} VNĐ</p>
+                    </div>
+                `;
+                resultList.appendChild(listItem);
+            });
+            resultsContainer.appendChild(resultList);
+            resultsContainer.classList.add("active"); // Hiển thị với hiệu ứng
+        })
+        .catch(error => {
+            console.error("Lỗi tìm kiếm:", error);
+            resultsContainer.classList.remove("active");
+        });
+});
+
+// Ẩn kết quả khi nhấp ra ngoài
+document.addEventListener("click", function (event) {
+    const resultsContainer = document.getElementById("searchResults");
+    const searchInput = document.getElementById("searchInput");
+    if (
+        !resultsContainer.contains(event.target) &&
+        !searchInput.contains(event.target)
+    ) {
+        resultsContainer.classList.remove("active");
+    }
+});
+
+</script>
+
+
         <div class="avatar">
             <img src="https://via.placeholder.com/40" alt="User Avatar">
             <div class="dropdown-menu">

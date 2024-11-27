@@ -288,6 +288,35 @@ if (!isset($_SESSION['user_id'])) {
 
 /* tim kiem */
 
+#searchResults {
+ 
+  justify-content: space-between;
+  align-items: center;
+    
+    position: absolute;
+    top: 70px; /* Khoảng cách từ thanh tìm kiếm */
+    /* left: 0; */
+    width: 50%;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 1000;
+    display: none; 
+    /* Ẩn mặc định */
+}
+
+/* Kết quả hiển thị */
+#searchResults.active {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+}
+
 
 
 
@@ -308,16 +337,19 @@ if (!isset($_SESSION['user_id'])) {
             </div>
 
             <div class="search-bar">
-    <input type="text" id="searchInput" name="keyword" placeholder="Bạn cần tìm gì ..." required />
-    <button type="button" id="searchButton" class="search-button">Tìm kiếm</button>
-</div>
-<div id="searchResults"></div>
+               <input type="text" id="searchInput" name="keyword" placeholder="Bạn cần tìm gì ..." required />
+                <button type="button" id="searchButton" class="search-button">Tìm kiếm</button>
+            </div>
+            <div id="searchResults"></div>
 
 <script>
-    document.getElementById("searchButton").addEventListener("click", function () {
+   document.getElementById("searchButton").addEventListener("click", function () {
     const keyword = document.getElementById("searchInput").value.trim();
+    const resultsContainer = document.getElementById("searchResults");
+
     if (keyword === "") {
         alert("Vui lòng nhập từ khóa tìm kiếm!");
+        resultsContainer.classList.remove("active");
         return;
     }
 
@@ -325,11 +357,11 @@ if (!isset($_SESSION['user_id'])) {
     fetch(`/web_new_born/new_born/timkiem.php?keyword=${encodeURIComponent(keyword)}`)
         .then(response => response.json())
         .then(data => {
-            const resultsContainer = document.getElementById("searchResults");
             resultsContainer.innerHTML = ""; // Xóa kết quả cũ
 
             if (data.length === 0) {
                 resultsContainer.innerHTML = "<p>Không tìm thấy sản phẩm phù hợp.</p>";
+                resultsContainer.classList.add("active"); // Hiển thị khung trống
                 return;
             }
 
@@ -350,12 +382,27 @@ if (!isset($_SESSION['user_id'])) {
                 resultList.appendChild(listItem);
             });
             resultsContainer.appendChild(resultList);
+            resultsContainer.classList.add("active"); // Hiển thị với hiệu ứng trượt
         })
         .catch(error => {
             console.error("Lỗi tìm kiếm:", error);
             alert("Có lỗi xảy ra khi tìm kiếm. Vui lòng thử lại!");
+            resultsContainer.classList.remove("active");
         });
 });
+
+// Ẩn kết quả khi nhấp ra ngoài
+document.addEventListener("click", function (event) {
+    const resultsContainer = document.getElementById("searchResults");
+    const searchInput = document.getElementById("searchInput");
+    if (
+        !resultsContainer.contains(event.target) &&
+        !searchInput.contains(event.target)
+    ) {
+        resultsContainer.classList.remove("active");
+    }
+});
+
 
 </script>
             <div class="account">

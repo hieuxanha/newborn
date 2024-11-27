@@ -1,11 +1,11 @@
 <?php
-require_once('C:/xampp/htdocs/web_new_born/new_born/db.php'); // Kết nối đến cơ sở dữ liệu
+require_once('C:/xampp/htdocs/web_new_born/new_born/db.php'); 
 
-// Kiểm tra nếu ID người dùng tồn tại trong URL
+
 if (isset($_GET['id'])) {
     $user_id = $_GET['id'];
 
-    // Lấy dữ liệu người dùng dựa trên ID
+
     $query = "SELECT * FROM users WHERE id = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $user_id);
