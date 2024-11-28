@@ -9,7 +9,7 @@ CREATE TABLE users (
     email VARCHAR(100) NOT NULL UNIQUE,
     address VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
-    `role` enum('user','nhanvien','admin') NOT NULL DEFAULT 'user', -- Cần giá trị mặc định cho role, ở đây mình đặt là 'user'
+    `role` enum('khachhang','nhanvien','admin') NOT NULL DEFAULT 'user', -- Cần giá trị mặc định cho role, ở đây mình đặt là 'user'
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

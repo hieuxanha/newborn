@@ -223,18 +223,91 @@ $result = $conn->query($sql);
 </div>
 
 <div class="header">
-    <div class="search-bar">
-        <input type="text" placeholder="Tìm kiếm sản phẩm..." id="searchInput">
+<div class="search-bar">
+    <input type="text" placeholder="Tìm kiếm vai trò..." id="searchInput" />
+    <div
+        id="searchResults"
+        style="display: none; position: absolute; background: #fff; border: 1px solid #ddd; border-radius: 5px; max-width: 400px; padding: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 1000;">
     </div>
-    <div class="avatar">
-        <img src="https://via.placeholder.com/40" alt="User Avatar">
-        <div class="dropdown-menu">
-            <a href="#">Profile</a>
-            <a href="#">Settings</a>
-            <a href="#">Activity Log</a>
-            <a href="#">Logout</a>
-        </div>
-    </div>
+</div>
+
+<script>
+    document.getElementById("searchInput").addEventListener("input", function () {
+        const keyword = document.getElementById("searchInput").value.trim();
+        const resultsContainer = document.getElementById("searchResults");
+
+        if (keyword === "") {
+            resultsContainer.style.display = "none"; // Ẩn kết quả khi không có từ khóa
+            return;
+        }
+
+        // Gửi yêu cầu tìm kiếm tới backend (tìm kiếm theo vai trò)
+        fetch(`/web_new_born/new_born/timkiemkhachhang.php?keyword=${encodeURIComponent(keyword)}&searchBy=role`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Lỗi phản hồi từ máy chủ");
+                }
+                return response.json();
+            })
+            .then(data => {
+                resultsContainer.innerHTML = ""; // Xóa kết quả cũ
+
+                if (data.length === 0) {
+                    resultsContainer.innerHTML = "<p>Không tìm thấy vai trò phù hợp.</p>";
+                    resultsContainer.style.display = "block";
+                    return;
+                }
+
+                // Hiển thị danh sách người dùng tìm được
+                const resultList = document.createElement("ul");
+                resultList.style.listStyle = "none";
+                resultList.style.margin = "0";
+                resultList.style.padding = "0";
+
+                data.forEach(item => {
+                    const listItem = document.createElement("li");
+                    listItem.style.marginBottom = "10px";
+                    listItem.innerHTML = `
+                        <div style="display: flex; align-items: center;">
+                            <div>
+                                <a href="/web_new_born/new_born/Frontend_web/ChiTietNguoiDung.php?id=${item.id}" 
+                                    style="text-decoration: none; color: #333; font-weight: bold;">
+                                    ${item.name} - ${item.role}
+                                </a>
+                                <p style="margin: 5px 0; color: #888;">
+                                    Vai trò: ${item.role}
+                                </p>
+                            </div>
+                        </div>
+                    `;
+                    resultList.appendChild(listItem);
+                });
+
+                resultsContainer.appendChild(resultList);
+                resultsContainer.style.display = "block"; // Hiển thị kết quả tìm kiếm
+            })
+            .catch(error => {
+                console.error("Lỗi tìm kiếm:", error);
+                alert("Có lỗi xảy ra khi tìm kiếm. Vui lòng thử lại!");
+                resultsContainer.style.display = "none"; // Ẩn kết quả khi có lỗi
+            });
+    });
+
+    // Ẩn kết quả khi nhấp ra ngoài
+    document.addEventListener("click", function (event) {
+        const resultsContainer = document.getElementById("searchResults");
+        const searchInput = document.getElementById("searchInput");
+
+        // Kiểm tra nếu nhấp vào ngoài vùng tìm kiếm hoặc input
+        if (
+            !resultsContainer.contains(event.target) &&
+            event.target !== searchInput
+        ) {
+            resultsContainer.style.display = "none";
+        }
+    });
+</script>
+
 </div>
 
 <div class="content" style="margin-top: 30px;">

@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $role = $_POST['role'] ?? 'khachhang'; 
 
-    // Kiểm tra xem email đã tồn tại trong cơ sở dữ liệu chưa
+
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         window.location.href ='http://localhost/web_new_born/new_born/Frontend_web/formdangnhapky.php'; 
       </script>";
     } else {
-        // Câu lệnh SQL để thêm người dùng
+
         $stmt = $conn->prepare("INSERT INTO users (name, phone, email, address, password, role) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssssss", $name, $phone, $email, $address, $password, $role);
 

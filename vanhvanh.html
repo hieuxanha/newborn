@@ -166,15 +166,14 @@ $conn->close();
                 <input type="number" id="price" name="gia" placeholder="Nhập giá sản phẩm" required>
             </div>
             <div class="form-group">
-                <label for="loai_san_pham">Loại sản phẩm</label>
-                <input type="text" class="form-control" id="loai_san_pham" name="loai_san_pham"
-                    value="<?php echo htmlspecialchars($product['loai_san_pham']); ?>" required>
-            </div>
-            <div class="form-group">
                 <label for="description">Mô Tả</label>
                 <textarea id="description" name="mo_ta" rows="4" placeholder="Nhập mô tả sản phẩm" required></textarea>
             </div>
-          
+            <div class="form-group">
+                <label for="product_image">Ảnh Sản Phẩm</label>
+                <input type="file" id="product_image" name="anh_san_pham" accept="image/*" required>
+                <img id="preview" src="" alt="Xem trước ảnh sản phẩm" style="display: none;">
+            </div>
             <div class="form-group">
                 <label for="quantity">Số Lượng</label>
                 <input type="number" id="quantity" name="so_luong" placeholder="Nhập số lượng sản phẩm" required>

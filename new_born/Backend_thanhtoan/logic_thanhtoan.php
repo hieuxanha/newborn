@@ -104,7 +104,7 @@ if (isset($_SESSION['user_id'])) {
             }
             
 
-            // Chuyển hướng sau khi thanh toán
+          
             header('Location: ../Frontend_web/Thanhtoanthanhcong.php');
         } else {
             echo "Lỗi khi lấy giỏ hàng: " . $conn->error;

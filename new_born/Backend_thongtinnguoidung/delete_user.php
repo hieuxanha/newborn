@@ -20,7 +20,6 @@ if (isset($_GET['id'])) {
     exit;
 }
 
-// Redirect back to the admin page
 header("Location: ../Frontend_web/thongtinnguoidung.php");
 exit;
 ?>
