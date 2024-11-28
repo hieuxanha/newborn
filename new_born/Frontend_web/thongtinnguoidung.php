@@ -381,7 +381,7 @@ document.addEventListener("click", function (event) {
 </table>
         <div class="form-group">
             <!-- <button type="submit" class="btn btn-primary">Cập nhật</button> -->
-            <button class="btn btn-primary" type="button"><a href="http://127.0.0.1:5501/new_born/Frontend_web/Menu.html">QUAY LẠI</a></button>
+            <button class="btn btn-primary" type="button"><a href="./Menu.php">QUAY LẠI</a></button>
              </div>
     </div>
     

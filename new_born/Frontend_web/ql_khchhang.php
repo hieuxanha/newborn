@@ -361,7 +361,7 @@ $result = $conn->query($sql);
             </tbody>
         </table>
         <hr>
-        <a href="http://127.0.0.1:5501/new_born/Frontend_web/Menu.html" class="btn btn-primary">Quay lại</a>
+        <a href="./Menu.php" class="btn btn-primary">Quay lại</a>
     </div>
 </div>
 

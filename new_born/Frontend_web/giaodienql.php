@@ -344,7 +344,7 @@ if (isset($_SESSION['name'])) {
 }
 
                 ?>
-                  <a href="http://localhost/web_new_born/new_born/Frontend_web/Menu.html">Quản lý</a>
+                  <a href="./Menu.php">Quản lý</a>
 
                 <!-- <a href="http://localhost/web_new_born/new_born/Frontend_web/admin2.php">Quản lý</a> -->
 
