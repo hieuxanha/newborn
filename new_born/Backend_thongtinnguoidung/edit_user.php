@@ -58,7 +58,7 @@ if (isset($_GET['id'])) {
         
         <label for="role">Vai trò:</label>
         <select id="role" name="role" required>
-            <option value="user" <?php echo $user['role'] === 'user' ? 'selected' : ''; ?>>Khách hàng</option>
+            <option value="khachhang" <?php echo $user['role'] === 'khachhang' ? 'selected' : ''; ?>>Khách hàng</option>
             <option value="nhanvien" <?php echo $user['role'] === 'nhanvien' ? 'selected' : ''; ?>>Nhân viên</option>
         </select><br><br>
 
