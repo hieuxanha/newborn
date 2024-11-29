@@ -231,17 +231,39 @@ require_once('C:/xampp/htdocs/web_new_born/new_born/db.php');
         document.getElementById("loginForm").style.display = "block";
         document.getElementById("registerForm").style.display = "none";
     }
-
-    // Kiểm tra mật khẩu khớp khi đăng ký
+    // Kiểm tra mật khẩu, mật khẩu xác nhận và điều khoản trong form đăng ký
     document.getElementById('registerForm').addEventListener('submit', function(event) {
-        const password = document.getElementById('password').value;
-        const confirmPassword = document.getElementById('confirm-password').value;
+        var phoneNumber = document.querySelector('input[type="tel"]').value;
+        var phonePattern = /^\d{10}$/; // Biểu thức chính quy để kiểm tra 10 chữ số
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('confirm-password').value;
+        var termsCheckbox = document.getElementById('terms'); // Lấy checkbox điều khoản
 
+       // Kiểm tra số điện thoại
+       if (!phonePattern.test(phoneNumber)) {
+            event.preventDefault(); // Ngăn không cho form gửi đi
+            alert('Số điện thoại phải gồm 10 chữ số!');
+             return;
+        }
+
+        // Kiểm tra mật khẩu và mật khẩu xác nhận
         if (password !== confirmPassword) {
-            event.preventDefault();
-            document.getElementById('error-message-register').style.display = 'block';
+            event.preventDefault(); // Ngăn không cho form gửi đi
+            alert('Mật khẩu và mật khẩu xác nhận không khớp!');
+            return;
+        }
+
+        // Kiểm tra checkbox điều khoản
+        if (!termsCheckbox.checked) {
+            event.preventDefault(); // Ngăn không cho form gửi đi
+            alert('Bạn phải đồng ý với các điều khoản và điều kiện!');
+        } else {
+             alert('Đăng ký thành công!');
         }
     });
+
+    
+    
     </script>
 
 </body>

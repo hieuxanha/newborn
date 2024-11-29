@@ -54,6 +54,7 @@ body {
 
 
     <div class="menu1">
+        
         <a href="http://localhost/web_new_born/new_born/Frontend_web/phanquyen.php">QUẢN LÝ QUYỀN TRUY CẬP</a>
         <hr>
         <a href="http://localhost/web_new_born/new_born/Frontend_web/thongtinnguoidung.php">QUẢN LÝ NHÂN VIÊN</a>
