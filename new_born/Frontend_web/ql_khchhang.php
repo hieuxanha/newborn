@@ -365,16 +365,6 @@ $result = $conn->query($sql);
     </div>
 </div>
 
-<script>
-    function validatePassword() {
-        var password = document.querySelector('input[name="password"]').value;
-        if (password.length < 6) {
-            alert("Mật khẩu phải chứa ít nhất 6 ký tự.");
-            return false;
-        }
-        return true;
-    }
-</script>
 
 </body>
 </html>
