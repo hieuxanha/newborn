@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $address = $_POST['address'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $role = 'nhanvien';
+    $role = 'khachhang';
 
     // Kiểm tra email đã tồn tại chưa
     $sql_check = "SELECT * FROM users WHERE email = ?";
@@ -17,11 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt_check->get_result();
 
     if ($result->num_rows > 0) {
-        // Chuyển hướng về giao diện mong muốn và truyền thông báo qua query string
-       
+
         echo "<script>
         alert('Email đã tồn tại.');
-        window.location.href ='http://localhost/web_new_born/new_born/Frontend_web/thongtinnguoidung.php'; 
+        window.location.href ='http://localhost/web_new_born/new_born/Frontend_web/ql_khchhang.php'; 
       </script>";
         exit(); // Kết thúc script sau khi chuyển hướng
     } else {
@@ -31,15 +30,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt_insert->bind_param("ssssss", $name, $phone, $email, $address, $password, $role);
 
         if ($stmt_insert->execute()) {
-            header("Location: ../Frontend_web/thongtinnguoidung.php?success=Thêm người dùng mới thành công!");
+            // Chèn thành công, chuyển hướng với thông báo thành công
+            header("Location: ../Frontend_web/ql_khchhang.php?success=Thêm khách hàng mới thành công!");
             exit();
         } else {
-            header("Location: ../Frontend_web/thongtinnguoidung.php?error=Lỗi khi thêm dữ liệu.");
+            // Lỗi khi chèn dữ liệu
+            header("Location: ../Frontend_web/ql_khchhang.php?error=Lỗi khi thêm dữ liệu.");
             exit();
         }
     }
 
-    // Đóng kết nối các prepared statements
+    // Đóng các prepared statements
     $stmt_check->close();
     if (isset($stmt_insert)) {
         $stmt_insert->close();

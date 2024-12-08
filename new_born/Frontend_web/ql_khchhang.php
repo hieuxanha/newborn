@@ -222,8 +222,8 @@ $result = $conn->query($sql);
     <!-- <a href="http://localhost/web_new_born/new_born/admin2.php">Quản lý sản phẩm</a> -->
 </div>
 
-<div class="header">
-<div class="search-bar">
+  <div class="header">
+  <div class="search-bar">
     <input type="text" placeholder="Tìm kiếm vai trò..." id="searchInput" />
     <div
         id="searchResults"
@@ -270,7 +270,7 @@ $result = $conn->query($sql);
                     listItem.innerHTML = `
                         <div style="display: flex; align-items: center;">
                             <div>
-                                <a href="/web_new_born/new_born/Frontend_web/ChiTietNguoiDung.php?id=${item.id}" 
+                                <a href="/web_new_born/new_born/Frontend_web/ql_khchhang.php?id=${item.id}" 
                                     style="text-decoration: none; color: #333; font-weight: bold;">
                                     ${item.name} - ${item.role}
                                 </a>
@@ -314,7 +314,7 @@ $result = $conn->query($sql);
     <h2>Quản lý khách hàng</h2>
 
     <!-- Add Customer Form -->
-    <form action="../Backend_thongtinnguoidung/add_nv.php" method="POST" onsubmit="return validatePassword()">
+    <form action="../Backend_thongtinnguoidung/add_kh.php" method="POST" onsubmit="return validatePassword()">
         <input type="text" class="input-field" name="name" placeholder="Tên Khách Hàng" required>
         <input type="tel" class="input-field" name="phone" placeholder="Số Điện Thoại" required>
         <input type="email" class="input-field" name="email" placeholder="Email Khách Hàng" required>
@@ -350,7 +350,7 @@ $result = $conn->query($sql);
                         echo "<td>" . $row['address'] . "</td>";
                         echo "<td>
                            
-                                <a href='../Backend_thongtinnguoidung/delete_user.php?id=" . $row['id'] . "' class='btn btn-primary' onclick='return confirm(\"Bạn có chắc chắn muốn xóa?\")'>Xóa</a>
+                                <a href='../Backend_thongtinnguoidung/delete_kh.php?id=" . $row['id'] . "' class='btn btn-primary' onclick='return confirm(\"Bạn có chắc chắn muốn xóa?\")'>Xóa</a>
                               </td>";
                         echo "</tr>";
                     }
