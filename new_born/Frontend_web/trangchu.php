@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
     // Thiết lập thông báo
     // $message = "Bạn chưa có tài khoản đăng nhập.";
     // echo "Bạn chưa có tài khoản đăng nhập.";
-     echo '<h3> Bạn chưa có tài khoản đăng nhập !!!!.</h3>';
+    echo '<h5> Vui lòng đăng nhập hoặc đăng ký! </h5>';
 }
 
     if (!isset($_SESSION['cart'])) {
@@ -327,6 +327,7 @@ if (!isset($_SESSION['user_id'])) {
 <body>
     <!-- Header -->
     <div class="container container_header">
+        
         <div class="header">
             <div class="logo">
                 <a href="trangchu.php"> <img src="../img/logo.webp" alt="Logo-Nous" /></a>
@@ -419,7 +420,7 @@ document.addEventListener("click", function (event) {
               echo '</div>';
             } else {
     
-             echo '<a href="./formdangnhapky.php">Tài khoản</a>';
+            //  echo '<a href="./formdangnhapky.php">Tài khoản</a>';
            }
 
                 ?>

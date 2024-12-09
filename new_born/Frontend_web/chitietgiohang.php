@@ -357,45 +357,6 @@
     <div id="cartOverlay" class="cart-overlay" onclick="toggleCart()"></div>
 
 
-    <!-- <div class="container">
-        <div class="cart">
-            <div class="cart-left">
-                <?php foreach ($_SESSION['cart'] as $id => $product): ?>
-                <div class="cart-item">
-                    <img src="<?= $product['anh_san_pham']; ?>" alt="Product Image">
-                    <div class="details">
-                        <h3><?= $product['ten_san_pham']; ?></h3>
-                        <p>SKU: <?= $product['sku']; ?></p>
-                        <p>Size: <?= $product['size']; ?></p>
-                    </div>
-                    <div class="quantity">
-                        <form action="capnhat_giohang.php" method="post">
-                            <button type="submit" name="action" value="decrease" class="decrease">-</button>
-                            <input type="hidden" name="product_id" value="<?= $id; ?>">
-                            <input type="number" name="quantity" value="<?= $product['quantity']; ?>" min="1">
-                            <button type="submit" name="action" value="increase" class="increase">+</button>
-                        </form>
-                    </div>
-                    <div class="price"><?= number_format($product['gia'], 0, ',', '.'); ?>₫</div>
-                </div>
-                <?php $totalPrice += $product['gia'] * $product['quantity']; ?>
-                <?php endforeach; ?>
-            </div>
-
-            <div class="cart-right">
-                <div class="order-info">
-                    <p class="abc">Phí vận chuyển sẽ được tính ở trang thanh toán. Bạn cũng có thể nhập mã giảm giá ở
-                        trang thanh toán</p>
-                    <div class="total">Tạm tính (<?= count($_SESSION['cart']); ?> sản phẩm):
-                        <?= number_format($totalPrice, 0, ',', '.'); ?>₫</div>
-                    <label><input type="checkbox"> Xuất Hóa Đơn</label>
-                    <button class="order-button">Đặt Hàng</button>
-                </div>
-            </div>
-        </div>
-        <h3 style="margin-top: 10px;" class="abc">Ghi chú</h3>
-        <textarea placeholder="Vui lòng nhập ghi chú của bạn..."></textarea>
-    </div> -->
     <div class="container">
         <div class="cart">
             <div class="cart-left">
@@ -454,15 +415,6 @@
                         </form>
                     </div>
 
-                    <!-- <form method="post" action="./xuly_logic/update_cart.php" style="display: inline;">
-
-                        <input type="hidden" name="id" value="<?= $row['id']; ?>">
-
-                        <button type="submit" name="action" value="decrease" class="quantity-btn">-</button>
-                        <input type="text" value="<?= $row['so_luong']; ?>" readonly
-                            style="width: 30px; text-align: center;">
-                        <button type="submit" name="action" value="increase" class="quantity-btn">+</button>
-                    </form> -->
 
                     <!-- Hiển thị giá tiền của từng sản phẩm -->
                     <div class="price"><?= number_format($row['gia'], 0, ',', '.'); ?>₫</div>

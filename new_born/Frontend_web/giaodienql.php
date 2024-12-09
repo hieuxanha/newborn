@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
     // Thiết lập thông báo
     // $message = "Bạn chưa có tài khoản đăng nhập.";
     // echo "Bạn chưa có tài khoản đăng nhập.";
-     echo '<h3> Bạn chưa có tài khoản đăng nhập !!!!.</h3>';
+    echo '<h5> Vui lòng đăng nhập hoặc đăng ký! </h5>';
 }
 
     if (!isset($_SESSION['cart'])) {
