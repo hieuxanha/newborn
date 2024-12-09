@@ -257,7 +257,7 @@
 
         <!-- Navigation -->
         <div class="menu">
-            <a href="#">GIỚI THIỆU NOUS</a>
+            <a href="http://localhost/web_new_born/new_born/Frontend_web/trangchu.php">GIỚI THIỆU NOUS</a>
             <a href="#">BÉ MẶC</a>
             <a href="#">BÉ NGỦ</a>
             <a href="#">BÉ CHƠI</a>

@@ -89,8 +89,8 @@ if (!$result) {
         </table>
         <hr>
 
-        <a href="" class="btn btn-primary" onclick="addNew()">---</a>
-        <a href="./Menu.php" class="btn btn-primary">Quay lại</a>
+        
+        <a href="./Menu1.php" class="btn btn-primary">Quay lại</a>
     </div>
 </body>
 </html>

@@ -224,7 +224,7 @@ $result = $conn->query($sql);
 
   <div class="header">
   <div class="search-bar">
-    <input type="text" placeholder="Tìm kiếm vai trò..." id="searchInput" />
+    <input type="text" placeholder="Tìm kiếm ..." id="searchInput" />
     <div
         id="searchResults"
         style="display: none; position: absolute; background: #fff; border: 1px solid #ddd; border-radius: 5px; max-width: 400px; padding: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 1000;">
@@ -314,15 +314,7 @@ $result = $conn->query($sql);
     <h2>Quản lý khách hàng</h2>
 
     <!-- Add Customer Form -->
-    <form action="../Backend_thongtinnguoidung/add_kh.php" method="POST" onsubmit="return validatePassword()">
-        <input type="text" class="input-field" name="name" placeholder="Tên Khách Hàng" required>
-        <input type="tel" class="input-field" name="phone" placeholder="Số Điện Thoại" required>
-        <input type="email" class="input-field" name="email" placeholder="Email Khách Hàng" required>
-        <input type="text" class="input-field" name="address" placeholder="Địa Chỉ Khách Hàng" required>
-        <input type="password" class="input-field" name="password" placeholder="Mật Khẩu Khách Hàng" required>
-        <input type="hidden" name="role" value="khachhang">
-        <button type="submit" class="btn btn-primary">Thêm khách hàng</button>
-    </form>
+ 
 
     <h2>Danh sách khách hàng</h2>
     <div class="table-container">
@@ -361,7 +353,7 @@ $result = $conn->query($sql);
             </tbody>
         </table>
         <hr>
-        <a href="./Menu.php" class="btn btn-primary">Quay lại</a>
+        <a href="./Menu1.php" class="btn btn-primary">Quay lại</a>
     </div>
 </div>
 
