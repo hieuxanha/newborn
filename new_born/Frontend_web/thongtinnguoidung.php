@@ -369,7 +369,7 @@ document.addEventListener("click", function (event) {
                 echo "<td>" . $row['password'] . "</td>"; // Displaying the password
                 echo "<td>
                     
-                        <a href='../Backend_thongtinnguoidung/delete_user.php?id=" . $row['id'] . "' class='btn btn-primary' onclick='return confirm(\"Bạn có chắc chắn muốn xóa?\")'>Xóa</a>
+                        <a href='../Backend_thongtinnguoidung/xoa_nv.php?id=" . $row['id'] . "' class='btn btn-primary' onclick='return confirm(\"Bạn có chắc chắn muốn xóa?\")'>Xóa</a>
                       </td>";
                 echo "</tr>";
             }

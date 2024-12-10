@@ -832,7 +832,7 @@ if (isset($_SESSION['name'])) {
                     <div class="product-card">
                         <a href="<?= $row['id']; ?>">
                             <div class="product-image">
-                                <img src="/web_new_born/new_born/Frontend_web/s<?= htmlspecialchars($row['anh_san_pham']); ?>" />
+                                <img src="/web_new_born/new_born/Frontend_web/<?= htmlspecialchars($row['anh_san_pham']); ?>" />
                                 <div class="new-tag">NEW</div>
                                 <div class="cart-icon">
                                     <form action="../Backend_giohang/giohangnho.php" method="post">
