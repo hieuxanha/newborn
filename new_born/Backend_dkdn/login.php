@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     } elseif ($role === 'nhanvien') {
 
-                        header("Location: ../Frontend_web/giaodienql.php"); // Trang cho nhân viên
+                        header("Location: ../Frontend_web/giaodienql1.php"); // Trang cho nhân viên
                     } else {
                         // giao khách hàng
                         header("Location: ../Frontend_web/trangchu.php");

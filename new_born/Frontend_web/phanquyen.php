@@ -246,7 +246,7 @@ $result = $conn->query($sql);
         }
 
         // Gửi yêu cầu tìm kiếm tới backend (tìm kiếm theo vai trò)
-        fetch(`/web_new_born/new_born/timkiemkhachhang.php?keyword=${encodeURIComponent(keyword)}&searchBy=role`)
+        fetch(`/web_new_born/new_born/timkiemphanquyen.php?keyword=${encodeURIComponent(keyword)}&searchBy=role`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error("Lỗi phản hồi từ máy chủ");

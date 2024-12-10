@@ -54,9 +54,12 @@ body {
 
 
     <div class="menu1">
+
+    <a href="http://localhost/web_new_born/new_born/Frontend_web/admin2.php">QUẢN LÝ SẢN PHẨM</a>
+        <a href="http://localhost/web_new_born/new_born/Frontend_web/ql_donhang.php">QUẢN LÝ ĐƠN HÀNG</a>
+        <a href="http://localhost/web_new_born/new_born/Frontend_web/ql_khchhang.php">QUẢN LÝ KHÁCH HÀNG</a>
         
-        <a href="http://localhost/web_new_born/new_born/Frontend_web/phanquyen.php">QUẢN LÝ QUYỀN TRUY CẬP</a>
-        <a href="http://localhost/web_new_born/new_born/Frontend_web/thongtinnguoidung.php">QUẢN LÝ NHÂN VIÊN</a>
+   
     <a href="http://localhost/web_new_born/new_born/Frontend_web/giaodienql.php" class="btn btn-primary">Quay lại</a>
         
     </div>

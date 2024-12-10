@@ -369,8 +369,8 @@ document.addEventListener("click", function (event) {
                         <th>Số lượng</th>
                         <th>Ảnh</th>
                         <th>Nổi bật</th>
-                        <th></th>
-                        <th></th>
+                        <th>Chức năng</th>
+                        <th>Chức năng</th>
                     </tr>
                 </thead>
                 <tbody id="product-list">

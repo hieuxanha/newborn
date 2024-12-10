@@ -707,7 +707,7 @@ if (isset($_SESSION['name'])) {
 
         // Truy vấn lấy tất cả sản phẩm có loại "Bé uống"
         $stmt = $conn->prepare("
-            SELECT * FROM sanpham WHERE loai_san_pham = 'Bé uống'
+            SELECT * FROM sanpham WHERE loai_san_pham = 'Bé ăn uống'
         ");
         if ($stmt === false) {
             die("Lỗi chuẩn bị truy vấn: " . $conn->error);
@@ -721,7 +721,7 @@ if (isset($_SESSION['name'])) {
     <div class="container_outermost">
         <div class="container container_products">
             <section class="featured-products">
-                <h2>BÉ UỐNG</h2>
+                <h2>BÉ ĂN UỐNG</h2>
                 <div class="products">
                     <?php if ($result->num_rows > 0) : ?>
                     <?php while ($row = $result->fetch_assoc()) : ?>
@@ -811,7 +811,7 @@ if (isset($_SESSION['name'])) {
 
         // Truy vấn lấy tất cả sản phẩm có loại "Bé ăn ngoài"
         $stmt = $conn->prepare("
-            SELECT * FROM sanpham WHERE loai_san_pham = 'Bé ăn ngoài'
+            SELECT * FROM sanpham WHERE loai_san_pham = 'Bé ra ngoài'
         ");
         if ($stmt === false) {
             die("Lỗi chuẩn bị truy vấn: " . $conn->error);
@@ -825,7 +825,7 @@ if (isset($_SESSION['name'])) {
     <div class="container_outermost">
         <div class="container container_products">
             <section class="featured-products">
-                <h2>BÉ ĂN NGOÀI</h2>
+                <h2> BÉ RA NGOÀI</h2>
                 <div class="products">
                     <?php if ($result->num_rows > 0) : ?>
                     <?php while ($row = $result->fetch_assoc()) : ?>
