@@ -82,8 +82,9 @@ if (!$result) {
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='7'>Chưa có đơn hàng nào.</td></tr>";
+                    echo "<tr><td colspan='7' style='text-align: center; padding: 20px;'>Chưa có đơn hàng nào.</td></tr>";
                 }
+                
                 ?>
             </tbody>
         </table>

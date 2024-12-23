@@ -1,22 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="giao_dien_QL.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
-    <title>QUẢN LÝ</title>
-    's'
-</head>
-<body>
-    <div class="menu1">
-        <a href="#">QUẢN LÝ QUYỀN TRUY CẬP</a>
-        <a href="#">QUẢN LÝ NHÂN VIÊN</a>
-        <a href="/Web_backend/ql_san_pham/ql_san_pham.php">QUẢN LÝ SẢN PHẨM</a>
-        <a href="#">QUẢN LÝ ĐƠN HÀNG</a>
-        <a href="#">QUẢN LÝ KHÁCH HÀNG</a>
-        <a href="#">QUẢN LÝ GIỎ HÀNG</a>
-    </div>
-</body>
-</html>
+CREATE DATABASE nhasach;
+
+USE nhasach;
+
+CREATE TABLE sach (
+    maSach INT AUTOINCREMENT PRIMARY KEY,
+    tenSach VARCHAR(255) NOT NULL,
+    theLoai VARCHAR(100),
+    tacGia VARCHAR(255),
+    nhaXuatBan VARCHAR(255),
+    namXuatBBan INT,
+    soLuong INT,
+    giaBan DECIMAL(10, 2),
+    trangThai VARCHAR(50) AS (
+        CASE
+            WHEN soLuong < 10 THEN 'Sắp hết'
+            WHEN soLuong >= 10 AND soLuong < 50 THEN 'Còn'
+            ELSE 'Số lượng lớn'
+        END
+    ) STORED
+);
+
+

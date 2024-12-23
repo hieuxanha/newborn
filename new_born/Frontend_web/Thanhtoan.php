@@ -176,7 +176,7 @@ button {
 
         <section class="checkout">
             <!-- Shipping Information Form -->
-            <form class="shipping-form" action="../Backend_thanhtoan/logic_thanhtoan.php" method="POST">
+            <form class="shipping-form" id="shippingForm11" action="../Backend_thanhtoan/logic_thanhtoan.php" method="POST">
                 <h2>Thông tin giao hàng</h2>
                 <label for="hoTen">Họ Tên:</label>
                 <input type="text" name="hoTen" required>
@@ -192,11 +192,16 @@ button {
 
                 <fieldset>
                     <legend>Phương thức giao hàng</legend>
-                    <label>
-                        <input type="radio" name="shipping_method" value="delivery" checked> Giao tận nơi
-                    </label>
-                    <!-- <input type="text" name="diaChi" placeholder="Địa chỉ" value="<?= $_SESSION['diaChi'] ?? '' ?>" required> -->
+            <label>
+                <input type="radio" name="payment_method" value="delivery"  value="delivery" checked> Thanh khi nhận hàng
+            </label>
 
+            <label>
+                <input type="radio" name="payment_method" value="online_payment"  value="online_payment" required> Thanh toán online
+            </label>
+    
+
+              
                     <select name="city">
                         <option value="">Tỉnh / thành</option>
                         <option value="hanoi">Hà Nội</option>
@@ -217,13 +222,31 @@ button {
                         <option value="phuocmy">Phước Mỹ</option>
                     </select>
 
-                    <label style="margin-top: 10px;">
-                        <input type="radio" name="shipping_method" value="store"> Nhận tại cửa hàng
-                    </label>
+                   
                 </fieldset>
 
-                <button type="submit">Xác nhận thanh toán</button>
+                <button type="submit" id="confirmPayment" >Xác nhận thanh toán</button>
             </form>
+
+            <script>
+   document.getElementById("shippingForm11").addEventListener("submit", function (e) {
+    e.preventDefault(); // Ngăn form gửi mặc định
+
+    // Lấy phương thức thanh toán
+    const paymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
+
+    if (paymentMethod === "online_payment") {
+        // Gửi dữ liệu đến file PHP để xử lý thanh toán VNPay
+        this.action = "vnpay_payment.php";
+        this.submit();
+    } else {
+        // Gửi form bình thường cho phương thức 'Giao tận nơi'
+        this.action = "../Backend_thanhtoan/logic_thanhtoan.php";
+        this.submit();
+    }
+});
+
+</script>
 
             <!-- Order Summary Section -->
             <aside class="order-summary">
